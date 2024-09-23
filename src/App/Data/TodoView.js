@@ -4,11 +4,37 @@
 
 import { TodoItem } from "./Logic/TodoProject/TodoItem/TodoItem.js";
 export class TodoView {
-  constructor() {
-    this.projectsList = document.querySelector("#projects-list");
-    this.todoContainer = document.querySelector("#todo-container");
-  }
+  static projectsList = document.querySelector("#projects-list");
+  static todoContainer = document.querySelector("#todo-container");
+
   static renderTodos() {
-    return TodoItem.getAllTodos();
+    let todosArray = TodoItem.getAllTodos();
+    // return todosArray;
+
+    // create todo dom html element from array
+    let todoItemContainer = document.createElement("div");
+    todoItemContainer.classList.add("todo-item__container");
+    let todoItemTitle = document.createElement("div");
+    todoItemTitle.classList.add("todo-item__title");
+    todoItemTitle.innerText = `${todosArray[0].title}`;
+    todoItemContainer.appendChild(todoItemTitle);
+    let todoItemDescription = document.createElement("div");
+    todoItemDescription.classList.add("todo-item__description");
+    todoItemDescription.innerText = `${todosArray[0].description}`;
+    todoItemContainer.appendChild(todoItemDescription);
+    let todoItemDueDate = document.createElement("div");
+    todoItemDueDate.classList.add("todo-item__duedate");
+    todoItemDueDate.innerText = `${todosArray[0].dueDate}`;
+    todoItemContainer.appendChild(todoItemDueDate);
+    let todoItemPriority = document.createElement("div");
+    todoItemPriority.classList.add("todo-item__priority");
+    todoItemPriority.innerText = `${todosArray[0].priority}`;
+    todoItemContainer.appendChild(todoItemPriority);
+    let todoItemStatus = document.createElement("div");
+    todoItemStatus.classList.add("todo-item__status");
+    todoItemStatus.innerText = `${todosArray[0].status}`;
+    todoItemContainer.appendChild(todoItemStatus);
+
+    this.todoContainer.appendChild(todoItemContainer);
   }
 }
