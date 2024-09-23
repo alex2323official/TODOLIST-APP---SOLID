@@ -1,11 +1,14 @@
 import "./styles.css";
 import { TodoItem } from "./App/Data/Logic/TodoProject/TodoItem/TodoItem.js";
+import { TodoView } from "./App/Data/TodoView.js";
 
-const todoItem1 = new TodoItem(
-  "Something to do",
-  "Lorem dsfdsfsdfsd sdfsdfsd sfsdfsdfsd sdfsdfsdf sdfsdfsdfsdf sfsdfsd",
-  "10-10-2024",
-  "Low"
+// App Here
+TodoItem.createNewTodo(
+  "Some thing to do",
+  "lorem sdfsdf asfdsfds sdfdsf sdfsd sdfsd sdfsdfsdfs sdfsdf",
+  "10-12-2024",
+  "High"
 );
 
-// console.table(todoItem1);
+let showshit = TodoView.renderTodos();
+console.log(showshit);

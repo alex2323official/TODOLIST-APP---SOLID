@@ -10,4 +10,14 @@ export class TodoItem {
     this.priority = priority;
     this.status = "not done";
   }
+  static todoItemsArray = [];
+
+  static createNewTodo(title, description, dueDate, priority) {
+    let tempTodoItem = new TodoItem(title, description, dueDate, priority);
+    this.todoItemsArray.push(tempTodoItem);
+  }
+
+  static getAllTodos() {
+    return this.todoItemsArray;
+  }
 }
