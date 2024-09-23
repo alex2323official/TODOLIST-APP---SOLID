@@ -10,5 +10,4 @@ TodoItem.createNewTodo(
   "High"
 );
 
-let showshit = TodoView.renderTodos();
-console.log(showshit);
+TodoView.renderTodos();

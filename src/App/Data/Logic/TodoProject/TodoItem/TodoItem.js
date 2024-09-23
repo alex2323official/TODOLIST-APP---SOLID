@@ -20,4 +20,8 @@ export class TodoItem {
   static getAllTodos() {
     return this.todoItemsArray;
   }
+
+  static removeTodo(arrayID) {
+    this.todoItemsArray.slice(arrayID, 1);
+  }
 }

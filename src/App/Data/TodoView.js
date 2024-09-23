@@ -8,38 +8,43 @@ export class TodoView {
   static todoContainer = document.querySelector("#todo-container");
 
   static renderTodos() {
+    // clean old dom render
+    this.todoContainer.innerHTML = "";
+
     let todosArray = TodoItem.getAllTodos();
-    // return todosArray;
 
-    // create todo dom html element from array
-    let todoItemContainer = document.createElement("div");
-    todoItemContainer.classList.add("todo-item__container");
-    let todoItemTitle = document.createElement("div");
-    todoItemTitle.classList.add("todo-item__title");
-    todoItemTitle.innerText = `${todosArray[0].title}`;
-    todoItemContainer.appendChild(todoItemTitle);
-    let todoItemDescription = document.createElement("div");
-    todoItemDescription.classList.add("todo-item__description");
-    todoItemDescription.innerText = `${todosArray[0].description}`;
-    todoItemContainer.appendChild(todoItemDescription);
-    let todoItemDueDate = document.createElement("div");
-    todoItemDueDate.classList.add("todo-item__duedate");
-    todoItemDueDate.innerText = `${todosArray[0].dueDate}`;
-    todoItemContainer.appendChild(todoItemDueDate);
-    let todoItemPriority = document.createElement("div");
-    todoItemPriority.classList.add("todo-item__priority");
-    todoItemPriority.innerText = `${todosArray[0].priority}`;
-    todoItemContainer.appendChild(todoItemPriority);
-    let todoItemStatus = document.createElement("div");
-    todoItemStatus.classList.add("todo-item__status");
-    todoItemStatus.innerText = `${todosArray[0].status}`;
-    todoItemContainer.appendChild(todoItemStatus);
-    // Btn for deleting
-    let todoItemBtnDelete = document.createElement("button");
-    todoItemBtnDelete.classList.add("todo-item__btndelete");
-    todoItemBtnDelete.innerText = "X";
-    todoItemContainer.appendChild(todoItemBtnDelete);
+    // loop trough array of Todos
+    todosArray.forEach((todo) => {
+      // create todo dom html element from array
+      let todoItemContainer = document.createElement("div");
+      todoItemContainer.classList.add("todo-item__container");
+      let todoItemTitle = document.createElement("div");
+      todoItemTitle.classList.add("todo-item__title");
+      todoItemTitle.innerText = `${todo.title}`;
+      todoItemContainer.appendChild(todoItemTitle);
+      let todoItemDescription = document.createElement("div");
+      todoItemDescription.classList.add("todo-item__description");
+      todoItemDescription.innerText = `${todo.description}`;
+      todoItemContainer.appendChild(todoItemDescription);
+      let todoItemDueDate = document.createElement("div");
+      todoItemDueDate.classList.add("todo-item__duedate");
+      todoItemDueDate.innerText = `${todo.dueDate}`;
+      todoItemContainer.appendChild(todoItemDueDate);
+      let todoItemPriority = document.createElement("div");
+      todoItemPriority.classList.add("todo-item__priority");
+      todoItemPriority.innerText = `${todo.priority}`;
+      todoItemContainer.appendChild(todoItemPriority);
+      let todoItemStatus = document.createElement("div");
+      todoItemStatus.classList.add("todo-item__status");
+      todoItemStatus.innerText = `${todo.status}`;
+      todoItemContainer.appendChild(todoItemStatus);
+      // Btn for deleting
+      let todoItemBtnDelete = document.createElement("button");
+      todoItemBtnDelete.classList.add("todo-item__btndelete");
+      todoItemBtnDelete.innerText = "X";
+      todoItemContainer.appendChild(todoItemBtnDelete);
 
-    this.todoContainer.appendChild(todoItemContainer);
+      this.todoContainer.appendChild(todoItemContainer);
+    });
   }
 }
