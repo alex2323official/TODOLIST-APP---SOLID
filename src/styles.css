@@ -1,1 +1,68 @@
 /* styles.css */
+
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*/ * {
+  margin: 0;
+}
+
+*/ body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+*/ img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+*/ input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+*/ p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* MAIN APP HERE */
+body {
+  display: flex;
+}
+
+/* Main Todo Container */
+.todo-container {
+  width: 70vw;
+  background-color: red;
+}
+
+/* Sidebar Projects List */
+.projects-list {
+  width: 30vw;
+  background-color: yellow;
+}
+
+.projects-list--h1 {
+}
