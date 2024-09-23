@@ -55,12 +55,40 @@ body {
 /* Main Todo Container */
 .todo-container {
   width: 70vw;
+  min-height: 100vh;
   background-color: red;
+}
+
+.todo-item__container {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  background-color: blue;
+}
+
+.todo-item__title {
+}
+
+.todo-item__description {
+}
+
+.todo-item__duedate {
+}
+
+.todo-item__priority {
+}
+
+.todo-item__status {
+}
+
+.todo-item__btndelete {
 }
 
 /* Sidebar Projects List */
 .projects-list {
   width: 30vw;
+  min-height: 100vh;
   background-color: yellow;
 }
 

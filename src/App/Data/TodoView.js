@@ -34,6 +34,11 @@ export class TodoView {
     todoItemStatus.classList.add("todo-item__status");
     todoItemStatus.innerText = `${todosArray[0].status}`;
     todoItemContainer.appendChild(todoItemStatus);
+    // Btn for deleting
+    let todoItemBtnDelete = document.createElement("button");
+    todoItemBtnDelete.classList.add("todo-item__btndelete");
+    todoItemBtnDelete.innerText = "X";
+    todoItemContainer.appendChild(todoItemBtnDelete);
 
     this.todoContainer.appendChild(todoItemContainer);
   }
