@@ -22,6 +22,6 @@ export class TodoItem {
   }
 
   static removeTodo(arrayID) {
-    this.todoItemsArray.slice(arrayID, 1);
+    this.todoItemsArray.splice(arrayID, 1);
   }
 }

@@ -14,7 +14,7 @@ export class TodoView {
     let todosArray = TodoItem.getAllTodos();
 
     // loop trough array of Todos
-    todosArray.forEach((todo) => {
+    todosArray.forEach((todo, index) => {
       // create todo dom html element from array
       let todoItemContainer = document.createElement("div");
       todoItemContainer.classList.add("todo-item__container");
@@ -42,6 +42,7 @@ export class TodoView {
       let todoItemBtnDelete = document.createElement("button");
       todoItemBtnDelete.classList.add("todo-item__btndelete");
       todoItemBtnDelete.innerText = "X";
+      todoItemBtnDelete.id = `${index}`;
       todoItemContainer.appendChild(todoItemBtnDelete);
 
       this.todoContainer.appendChild(todoItemContainer);
