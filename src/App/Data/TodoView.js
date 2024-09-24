@@ -10,6 +10,8 @@ export class TodoView {
   static formInputBtn = document.querySelector("#formBtn");
 
   static renderTodos() {
+    // clean working (MAIN) todo array
+    TodoItem.todoItemsArray = [];
     // get array of todolist items from localStorage
     let storageArray = TodoRepository.getAllLocalStorageData();
     storageArray = storageArray.map((item) => JSON.parse(item));
