@@ -29,7 +29,6 @@ export class TodoView {
     this.todoContainer.innerHTML = "";
 
     let todosArray = TodoItem.getAllTodos();
-    console.log(todosArray);
 
     // loop trough array of Todos
     todosArray.forEach((todo, index) => {
@@ -72,7 +71,18 @@ export class TodoView {
     TodoRepository.localStorageDelete(idOfBtn);
     TodoItem.removeTodo(idOfBtn);
     // remove element from DOM
-    let todoListToRemove = document.querySelector(`#todoindex${idOfBtn}`);
-    todoListToRemove.remove();
+    if (document.querySelector(`#todoindex${idOfBtn}`)) {
+      let todoListToRemove = document.querySelector(`#todoindex${idOfBtn}`);
+      todoListToRemove.remove();
+    }
+  }
+
+  static bindAddTodoItemToStorage(userInputArray) {
+    // current empty space in array
+    let currentArrayLength = TodoItem.todoItemsArray.length;
+    console.log(currentArrayLength);
+
+    TodoRepository.localStorageSave(currentArrayLength, userInputArray);
+    this.renderTodos();
   }
 }

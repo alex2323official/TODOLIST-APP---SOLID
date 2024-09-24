@@ -14,7 +14,6 @@ export class AppController {
   static listenForDelete() {
     TodoView.todoContainer.addEventListener("click", (item) => {
       let IdOfBtn = item.target.id;
-      console.log(IdOfBtn);
       TodoView.bindRemoveTodoItemWithStorage(IdOfBtn);
 
       // TodoView.renderTodos();
@@ -30,7 +29,17 @@ export class AppController {
       let userDueTo = this.formDueTo.value;
       let userPriority = this.formPriority.value;
 
-      console.log(userTitle, userDescription, userDueTo, userPriority);
+      // console.log(userTitle, userDescription, userDueTo, userPriority);
+      let newUserTodoArray = [
+        userTitle,
+        userDescription,
+        userDueTo,
+        userPriority,
+      ];
+
+      // console.log(newUserTodoArray);
+      // TODO: import from TodoView controller for saving new todoitem
+      TodoView.bindAddTodoItemToStorage(newUserTodoArray);
     });
   }
 }
