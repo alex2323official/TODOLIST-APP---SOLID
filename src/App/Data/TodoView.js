@@ -6,6 +6,7 @@ import { TodoItem } from "./Logic/TodoProject/TodoItem/TodoItem.js";
 export class TodoView {
   static projectsList = document.querySelector("#projects-list");
   static todoContainer = document.querySelector("#todo-container");
+  static formInputBtn = document.querySelector("#formBtn");
 
   static renderTodos() {
     // clean old dom render
