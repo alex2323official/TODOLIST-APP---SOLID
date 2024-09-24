@@ -11,6 +11,34 @@
       <h1 class="projects-list--h1">ToDo App</h1>
       <p>Todo Lists goes here</p>
     </aside>
-    <main class="todo-container" id="todo-container"></main>
+    <main class="main" id="main">
+      <form class="form" action="#">
+        <div class="form__singleitem">
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="form__singleitem">
+          <label for="description">Description:</label>
+          <textarea name="description" id="description"></textarea>
+        </div>
+        <div class="form__singleitem">
+          <label for="dueDate">Finish to:</label>
+          <input type="date" name="dueDate" id="dueDate" />
+        </div>
+        <div class="form__singleitem">
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="ASAP!">ASAP!</option>
+          </select>
+        </div>
+        <div class="form__singleitem">
+          <button id="formBtn" type="button">Add New Todo</button>
+        </div>
+      </form>
+      <div class="todo-container" id="todo-container"></div>
+    </main>
   </body>
 </html>

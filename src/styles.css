@@ -52,10 +52,57 @@ body {
   display: flex;
 }
 
+.main {
+  width: 75vw;
+  min-height: 100vh;
+}
+
+/* Form Input New Todo */
+.form {
+  display: grid;
+  grid-template-columns: auto 20rem auto auto;
+  background-color: aqua;
+  margin-bottom: 1rem;
+}
+
+.form__singleitem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.form__singleitem:nth-child(5) {
+  grid-column: span 4;
+}
+
+.form__singleitem label {
+  margin-bottom: 0.5rem;
+}
+
+.form__singleitem input {
+  min-height: 6rem;
+}
+
+.form__singleitem textarea {
+  min-height: 6rem;
+  min-width: 20rem;
+}
+
+.form__singleitem select {
+  min-height: 6rem;
+}
+
+.form__singleitem option {
+}
+
+.form__singleitem button {
+  width: 100%;
+  height: 3rem;
+}
+
 /* Main Todo Container */
 .todo-container {
-  width: 70vw;
-  min-height: 100vh;
   background-color: red;
 }
 
@@ -64,7 +111,8 @@ body {
   grid-template-columns: 2fr 5fr 1fr 1fr 1fr auto;
   gap: 1rem;
   align-items: center;
-  background-color: blue;
+  background-color: gainsboro;
+  padding: 1rem;
 }
 
 .todo-item__title {
@@ -87,7 +135,7 @@ body {
 
 /* Sidebar Projects List */
 .projects-list {
-  width: 30vw;
+  width: 25vw;
   min-height: 100vh;
   background-color: yellow;
 }
