@@ -31,4 +31,6 @@ export class AppController {
       console.log(userTitle, userDescription, userDueTo, userPriority);
     });
   }
+
+  static showTodolistFromStorage() {}
 }
