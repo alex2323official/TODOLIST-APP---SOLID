@@ -14,9 +14,10 @@ export class AppController {
   static listenForDelete() {
     TodoView.todoContainer.addEventListener("click", (item) => {
       let IdOfBtn = item.target.id;
-      TodoItem.removeTodo(IdOfBtn);
+      console.log(IdOfBtn);
+      TodoView.bindRemoveTodoItemWithStorage(IdOfBtn);
 
-      TodoView.renderTodos();
+      // TodoView.renderTodos();
     });
   }
 

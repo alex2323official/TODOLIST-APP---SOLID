@@ -29,12 +29,14 @@ export class TodoView {
     this.todoContainer.innerHTML = "";
 
     let todosArray = TodoItem.getAllTodos();
+    console.log(todosArray);
 
     // loop trough array of Todos
     todosArray.forEach((todo, index) => {
       // create todo dom html element from array
       let todoItemContainer = document.createElement("div");
       todoItemContainer.classList.add("todo-item__container");
+      todoItemContainer.id = `todoindex${index}`;
       let todoItemTitle = document.createElement("div");
       todoItemTitle.classList.add("todo-item__title");
       todoItemTitle.innerText = `${todo.title}`;
@@ -64,5 +66,13 @@ export class TodoView {
 
       this.todoContainer.appendChild(todoItemContainer);
     });
+  }
+
+  static bindRemoveTodoItemWithStorage(idOfBtn) {
+    TodoRepository.localStorageDelete(idOfBtn);
+    TodoItem.removeTodo(idOfBtn);
+    // remove element from DOM
+    let todoListToRemove = document.querySelector(`#todoindex${idOfBtn}`);
+    todoListToRemove.remove();
   }
 }
