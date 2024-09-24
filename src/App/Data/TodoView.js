@@ -3,12 +3,26 @@
 // Responsible for all DOM manipulation and event handling. The view listens for user actions like clicking "Add Todo" or "Remove Todo" and passes these events to the controller. The view does not contain any business logic—it purely handles displaying information and collecting user inputs.
 
 import { TodoItem } from "./Logic/TodoProject/TodoItem/TodoItem.js";
+import { TodoRepository } from "./Storage/TodoRepository.js";
 export class TodoView {
   static projectsList = document.querySelector("#projects-list");
   static todoContainer = document.querySelector("#todo-container");
   static formInputBtn = document.querySelector("#formBtn");
 
   static renderTodos() {
+    // get array of todolist items from localStorage
+    let storageArray = TodoRepository.getAllLocalStorageData();
+    storageArray = storageArray.map((item) => JSON.parse(item));
+    // push this array to working (MAIN) array
+    storageArray.forEach((singleArray) => {
+      TodoItem.createNewTodo(
+        singleArray[0],
+        singleArray[1],
+        singleArray[2],
+        singleArray[3]
+      );
+    });
+
     // clean old dom render
     this.todoContainer.innerHTML = "";
 

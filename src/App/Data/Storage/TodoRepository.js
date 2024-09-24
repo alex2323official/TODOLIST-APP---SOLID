@@ -23,13 +23,13 @@ export class TodoRepository {
     for (let i = 0; i < localStorage.length; i++) {
       let index = localStorage.key(i);
       let value = localStorage.getItem(index);
+      // value = JSON.parse(value);
       // check for empty / wrong data
       if (value != "" && value != "undefined") {
         this.tempArray.push(value);
       }
-
-      console.log(this.tempArray);
     }
+    return this.tempArray;
   }
 
   static localStorageDelete(arrayIndex) {

@@ -21,8 +21,6 @@ import { TodoRepository } from "./App/Data/Storage/TodoRepository.js";
 
 // TodoItem.removeTodo(0);
 
-TodoView.renderTodos();
-
 AppController.listenForDelete();
 AppController.listenForAddNewTodo();
 
@@ -38,5 +36,4 @@ TodoRepository.localStorageSave(0, arraytest);
 TodoRepository.localStorageSave(1, arraytest);
 TodoRepository.localStorageSave(2, arraytest);
 
-// console.log(TodoRepository.getLocalStorageData(0));
-TodoRepository.getAllLocalStorageData();
+TodoView.renderTodos();
