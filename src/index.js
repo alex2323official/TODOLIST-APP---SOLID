@@ -25,15 +25,4 @@ TodoView.renderTodos();
 
 AppController.listenForDelete();
 
-// TODO: ADD BTN FOR ADDING IN FORM USER DATA FOR NEW TODOLIS
-// TODO: Add functionality for user to add todo items
-const arry = {
-  name: "tomek",
-  secondName: "domek",
-};
-
-TodoRepository.localStorageSave(0, arry);
-TodoRepository.localStorageDelete(0);
-
-const tet = TodoRepository.getLocalStorageData(0);
-console.log(tet);
+// TODO: Connect localStorage save/delete/read with APP
