@@ -30,6 +30,7 @@ export class TodoView {
 
     // clean old dom render
     this.todoContainer.innerHTML = "";
+    this.projectsListContainer.innerHTML = "";
 
     let todosArray = TodoItem.getAllTodos();
 
@@ -67,11 +68,16 @@ export class TodoView {
       todoItemContainer.appendChild(todoItemBtnDelete);
 
       this.todoContainer.appendChild(todoItemContainer);
-      // Take project name and add it to sidebar of projects
-      let sidebarProjectDiv = document.createElement("div");
-      sidebarProjectDiv.classList.add("projects-list-form__single-project");
-      sidebarProjectDiv.innerText = `${todo.projectName}`;
-      this.projectsListContainer.appendChild(sidebarProjectDiv);
+
+      // Check if project name with same name exist
+      // check if itteration = 1 if not abort printing project name
+      if (index == 0) {
+        // Take project name and add it to sidebar of projects
+        let sidebarProjectDiv = document.createElement("div");
+        sidebarProjectDiv.classList.add("projects-list-form__single-project");
+        sidebarProjectDiv.innerText = `${todo.projectName}`;
+        this.projectsListContainer.appendChild(sidebarProjectDiv);
+      }
     });
   }
 
@@ -88,7 +94,6 @@ export class TodoView {
   static bindAddTodoItemToStorage(userInputArray) {
     // current empty space in array
     let currentArrayLength = TodoItem.todoItemsArray.length;
-    console.log(currentArrayLength);
 
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
     this.renderTodos();
