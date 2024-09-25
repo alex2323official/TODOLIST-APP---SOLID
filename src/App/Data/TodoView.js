@@ -36,6 +36,8 @@ export class TodoView {
 
     let todosArray = TodoItem.getAllTodos();
 
+    let nameChecker = [];
+
     // loop trough array of Todos
     todosArray.forEach((todo, index) => {
       // create todo dom html element from array
@@ -73,14 +75,15 @@ export class TodoView {
 
       // Check if project name with same name exist
       // check if itteration = 1 if not abort printing project name
-      // if (index == 0) {
-      // Take project name and add it to sidebar of projects
-      let sidebarProjectDiv = document.createElement("div");
-      sidebarProjectDiv.classList.add("projects-list-form__single-project");
-      sidebarProjectDiv.innerText = `${todo.projectName}`;
-      this.projectsListContainer.appendChild(sidebarProjectDiv);
-      // console.log(todo);
-      // }
+      if (nameChecker.includes(todo.projectName)) {
+      } else {
+        // Take project name and add it to sidebar of projects
+        let sidebarProjectDiv = document.createElement("div");
+        sidebarProjectDiv.classList.add("projects-list-form__single-project");
+        sidebarProjectDiv.innerText = `${todo.projectName}`;
+        this.projectsListContainer.appendChild(sidebarProjectDiv);
+        nameChecker.push(todo.projectName);
+      }
     });
   }
 
