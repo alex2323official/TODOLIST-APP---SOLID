@@ -142,3 +142,19 @@ body {
 
 .projects-list--h1 {
 }
+
+.projects-list-form {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.projects-list-form input {
+  width: 100%;
+  padding: 1rem;
+}
+
+.projects-list-form button {
+  width: 100%;
+  margin-top: 1rem;
+  height: 2rem;
+}
