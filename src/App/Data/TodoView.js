@@ -71,13 +71,13 @@ export class TodoView {
 
       // Check if project name with same name exist
       // check if itteration = 1 if not abort printing project name
-      if (index == 0) {
-        // Take project name and add it to sidebar of projects
-        let sidebarProjectDiv = document.createElement("div");
-        sidebarProjectDiv.classList.add("projects-list-form__single-project");
-        sidebarProjectDiv.innerText = `${todo.projectName}`;
-        this.projectsListContainer.appendChild(sidebarProjectDiv);
-      }
+      // if (index == 0) {
+      // Take project name and add it to sidebar of projects
+      let sidebarProjectDiv = document.createElement("div");
+      sidebarProjectDiv.classList.add("projects-list-form__single-project");
+      sidebarProjectDiv.innerText = `${todo.projectName}`;
+      this.projectsListContainer.appendChild(sidebarProjectDiv);
+      // }
     });
   }
 
@@ -99,7 +99,14 @@ export class TodoView {
     this.renderTodos();
   }
 
-  static bindAddNewProjectToStorage(userNewProjectName) {
-    TodoRepository.localStorageSaveSingleString(textString);
+  static bindAddNewProjectToStorage(userInputArray) {
+    // current empty space in array
+    let currentArrayLength = TodoItem.todoItemsArray.length;
+
+    // Change projectName in array before save
+    console.log(userInputArray);
+
+    TodoRepository.localStorageSave(currentArrayLength, userInputArray);
+    this.renderTodos();
   }
 }

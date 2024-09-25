@@ -48,8 +48,11 @@ export class AppController {
   static listenForAddProject() {
     this.addProjectUserBtn.addEventListener("click", (item) => {
       let userNewProjectName = this.addProjectUserInput.value;
+      let tempArrayWithEmptyTodo = new TodoItem("", "", "", "");
+      tempArrayWithEmptyTodo.projectName = userNewProjectName;
 
       // add userNewProjectName to storage
+      TodoView.bindAddNewProjectToStorage(tempArrayWithEmptyTodo);
     });
   }
 }
