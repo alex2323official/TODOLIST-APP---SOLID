@@ -178,3 +178,7 @@ body {
   cursor: pointer;
   background-color: rgb(55, 55, 153);
 }
+
+#active {
+  background-color: green;
+}

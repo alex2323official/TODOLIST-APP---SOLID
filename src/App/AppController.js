@@ -56,4 +56,31 @@ export class AppController {
       TodoView.bindAddNewProjectToStorage(newUserTodoArray);
     });
   }
+
+  static checkWhichProjectIsActive() {
+    // project div with class 'active' need to show only that todolist
+    // add 'active' class on click
+    TodoView.projectsListContainer.addEventListener("click", (item) => {
+      // if this div has class of projects-list-form__single-project add new class .active to it
+
+      let acitveID = document.querySelector("#active");
+
+      let currentClasses = item.target;
+      if (
+        currentClasses.classList.contains(
+          "projects-list-form__single-project"
+        ) &&
+        currentClasses.id == ""
+      ) {
+        // TODO HERE
+        // reset other projects divs from #active
+        if (acitveID) {
+          acitveID.removeAttribute("id");
+        }
+
+        // set on this div #active
+        currentClasses.id = "active";
+      }
+    });
+  }
 }

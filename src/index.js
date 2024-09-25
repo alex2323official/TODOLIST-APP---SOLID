@@ -8,5 +8,6 @@ import { TodoRepository } from "./App/Data/Storage/TodoRepository.js";
 AppController.listenForDelete();
 AppController.listenForAddNewTodo();
 AppController.listenForAddProject();
+AppController.checkWhichProjectIsActive();
 
 TodoView.renderTodos();
