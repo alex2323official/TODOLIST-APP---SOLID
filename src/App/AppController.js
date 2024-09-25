@@ -72,7 +72,6 @@ export class AppController {
         ) &&
         currentClasses.id == ""
       ) {
-        // TODO HERE
         // reset other projects divs from #active
         if (acitveID) {
           acitveID.removeAttribute("id");
@@ -80,6 +79,9 @@ export class AppController {
 
         // set on this div #active
         currentClasses.id = "active";
+
+        //  TODO HEARE
+        // Switch on click active tab and only show todolist task for this current active Project
       }
     });
   }

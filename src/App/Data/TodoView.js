@@ -17,7 +17,6 @@ export class TodoView {
     TodoItem.todoItemsArray = [];
     // get array of todolist items from localStorage
     let storageArray = TodoRepository.getAllLocalStorageData();
-    console.table(storageArray);
     storageArray = storageArray.map((item) => JSON.parse(item));
     // push this array to working (MAIN) array
     storageArray.forEach((singleArray) => {
@@ -110,8 +109,6 @@ export class TodoView {
     let currentArrayLength = TodoItem.todoItemsArray.length;
 
     // Change projectName in array before save
-    console.log(userInputArray.projectName);
-
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
     this.renderTodos();
   }
