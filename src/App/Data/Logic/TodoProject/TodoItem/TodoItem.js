@@ -9,6 +9,7 @@ export class TodoItem {
     this.dueDate = dueDate;
     this.priority = priority;
     this.status = "not done";
+    this.projectName = "Defalt Tasks";
   }
   static todoItemsArray = [];
 

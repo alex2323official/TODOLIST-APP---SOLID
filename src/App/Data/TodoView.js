@@ -8,6 +8,9 @@ export class TodoView {
   static projectsList = document.querySelector("#projects-list");
   static todoContainer = document.querySelector("#todo-container");
   static formInputBtn = document.querySelector("#formBtn");
+  static projectsListContainer = document.querySelector(
+    "#projects-list__container"
+  );
 
   static renderTodos() {
     // clean working (MAIN) todo array
@@ -64,6 +67,11 @@ export class TodoView {
       todoItemContainer.appendChild(todoItemBtnDelete);
 
       this.todoContainer.appendChild(todoItemContainer);
+      // Take project name and add it to sidebar of projects
+      let sidebarProjectDiv = document.createElement("div");
+      sidebarProjectDiv.classList.add("projects-list-form__single-project");
+      sidebarProjectDiv.innerText = `${todo.projectName}`;
+      this.projectsListContainer.appendChild(sidebarProjectDiv);
     });
   }
 
@@ -84,5 +92,9 @@ export class TodoView {
 
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
     this.renderTodos();
+  }
+
+  static bindAddNewProjectToStorage(userNewProjectName) {
+    TodoRepository.localStorageSaveSingleString(textString);
   }
 }

@@ -10,6 +10,8 @@ export class AppController {
   static formDescription = document.querySelector("#description");
   static formDueTo = document.querySelector("#dueDate");
   static formPriority = document.querySelector("#priority");
+  static addProjectUserInput = document.querySelector("#projectName");
+  static addProjectUserBtn = document.querySelector("#projectAddBtn");
 
   static listenForDelete() {
     TodoView.todoContainer.addEventListener("click", (item) => {
@@ -40,6 +42,14 @@ export class AppController {
       // console.log(newUserTodoArray);
       // TODO: import from TodoView controller for saving new todoitem
       TodoView.bindAddTodoItemToStorage(newUserTodoArray);
+    });
+  }
+
+  static listenForAddProject() {
+    this.addProjectUserBtn.addEventListener("click", (item) => {
+      let userNewProjectName = this.addProjectUserInput.value;
+
+      // add userNewProjectName to storage
     });
   }
 }

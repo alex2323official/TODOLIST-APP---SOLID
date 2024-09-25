@@ -10,6 +10,10 @@ export class TodoRepository {
     localStorage.setItem(arrayIndex, stringifyArrayOfData);
   }
 
+  static localStorageSaveSingleString(uniqIndex, textString) {
+    localStorage.setItem(uniqIndex, textString);
+  }
+
   static getLocalStorageData(arrayIndex) {
     let arrayOfItems = localStorage.getItem(arrayIndex);
     arrayOfItems = JSON.parse(arrayOfItems);

@@ -141,6 +141,7 @@ body {
 }
 
 .projects-list--h1 {
+  text-align: center;
 }
 
 .projects-list-form {
@@ -157,4 +158,23 @@ body {
   width: 100%;
   margin-top: 1rem;
   height: 2rem;
+}
+
+/* Container for Projects */
+.projects-list__container {
+  width: 100%;
+}
+
+.projects-list-form__single-project {
+  background-color: blue;
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 0.2rem;
+  margin-top: 1rem;
+}
+
+.projects-list-form__single-project:hover {
+  cursor: pointer;
+  background-color: rgb(55, 55, 153);
 }
