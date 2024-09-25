@@ -37,6 +37,7 @@ export class AppController {
         userDescription,
         userDueTo,
         userPriority,
+        "My Project",
       ];
 
       // console.log(newUserTodoArray);
@@ -48,11 +49,11 @@ export class AppController {
   static listenForAddProject() {
     this.addProjectUserBtn.addEventListener("click", (item) => {
       let userNewProjectName = this.addProjectUserInput.value;
-      let tempArrayWithEmptyTodo = new TodoItem("", "", "", "");
-      tempArrayWithEmptyTodo.projectName = userNewProjectName;
+
+      let newUserTodoArray = ["", "", "", "", userNewProjectName];
 
       // add userNewProjectName to storage
-      TodoView.bindAddNewProjectToStorage(tempArrayWithEmptyTodo);
+      TodoView.bindAddNewProjectToStorage(newUserTodoArray);
     });
   }
 }

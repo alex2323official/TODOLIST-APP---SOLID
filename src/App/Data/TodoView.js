@@ -17,6 +17,7 @@ export class TodoView {
     TodoItem.todoItemsArray = [];
     // get array of todolist items from localStorage
     let storageArray = TodoRepository.getAllLocalStorageData();
+    console.table(storageArray);
     storageArray = storageArray.map((item) => JSON.parse(item));
     // push this array to working (MAIN) array
     storageArray.forEach((singleArray) => {
@@ -24,7 +25,8 @@ export class TodoView {
         singleArray[0],
         singleArray[1],
         singleArray[2],
-        singleArray[3]
+        singleArray[3],
+        singleArray[4]
       );
     });
 
@@ -77,6 +79,7 @@ export class TodoView {
       sidebarProjectDiv.classList.add("projects-list-form__single-project");
       sidebarProjectDiv.innerText = `${todo.projectName}`;
       this.projectsListContainer.appendChild(sidebarProjectDiv);
+      // console.log(todo);
       // }
     });
   }
@@ -104,7 +107,7 @@ export class TodoView {
     let currentArrayLength = TodoItem.todoItemsArray.length;
 
     // Change projectName in array before save
-    console.log(userInputArray);
+    console.log(userInputArray.projectName);
 
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
     this.renderTodos();
