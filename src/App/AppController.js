@@ -63,7 +63,13 @@ export class AppController {
     this.addProjectUserBtn.addEventListener("click", (item) => {
       let userNewProjectName = this.addProjectUserInput.value;
 
-      let newUserTodoArray = ["", "", "", "", userNewProjectName];
+      let newUserTodoArray = [
+        "",
+        "Delete this entry to remove whole Project",
+        "",
+        "",
+        userNewProjectName,
+      ];
 
       // add userNewProjectName to storage
       TodoView.bindAddNewProjectToStorage(newUserTodoArray, userNewProjectName);
@@ -95,6 +101,22 @@ export class AppController {
 
         // based on that variable call TodoView.renderTodos(passVariableHere to know which project todo list print on screen)
         TodoView.renderTodos(currentProjectActive);
+      }
+    });
+  }
+
+  static checkForStatusChange() {
+    TodoView.todoContainer.addEventListener("click", (item) => {
+      let tempClassList = item.target.classList;
+      if (tempClassList.contains("todo-item__priority")) {
+        // GET VALUE FROM LOCALSTORAGE AND CHANGE IT
+        let todoID = item.target.parentElement.id;
+        //  extract index from id
+        const searchTerm = "todoindex";
+        let finalID = todoID.substring(searchTerm.length);
+        console.log(finalID);
+        // let todoEntryArray = localStorage.getItem(todoID);
+        // console.log(todoEntryArray);
       }
     });
   }

@@ -9,5 +9,6 @@ AppController.listenForDelete();
 AppController.listenForAddNewTodo();
 AppController.listenForAddProject();
 AppController.checkWhichProjectIsActive();
+AppController.checkForStatusChange();
 
 TodoView.renderTodos("My Project");
