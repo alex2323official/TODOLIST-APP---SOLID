@@ -12,7 +12,7 @@ export class TodoView {
     "#projects-list__container"
   );
 
-  static renderTodos() {
+  static renderTodos(currentProjectActive) {
     // clean working (MAIN) todo array
     TodoItem.todoItemsArray = [];
     // get array of todolist items from localStorage
@@ -34,6 +34,21 @@ export class TodoView {
     this.projectsListContainer.innerHTML = "";
 
     let todosArray = TodoItem.getAllTodos();
+
+    // CHECK HERE FOR PROPER ARRAY ONLY WITH CURRENT PROJECT (using currentProjectActive)
+
+    console.log(currentProjectActive);
+    console.log(todosArray);
+
+    if (currentProjectActive != undefined) {
+      todosArray.forEach((element) => {
+        if (element.projectName == currentProjectActive) {
+          console.log(element);
+        }
+      });
+    }
+
+    // CHECK HERE FOR PROPER ARRAY ONLY WITH CURRENT PROJECT (using currentProjectActive)
 
     let nameChecker = [];
 

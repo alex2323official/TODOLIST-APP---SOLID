@@ -58,14 +58,10 @@ export class AppController {
   }
 
   static checkWhichProjectIsActive() {
-    // project div with class 'active' need to show only that todolist
-    // add 'active' class on click
     TodoView.projectsListContainer.addEventListener("click", (item) => {
-      // if this div has class of projects-list-form__single-project add new class .active to it
-
       let acitveID = document.querySelector("#active");
-
       let currentClasses = item.target;
+
       if (
         currentClasses.classList.contains(
           "projects-list-form__single-project"
@@ -80,8 +76,12 @@ export class AppController {
         // set on this div #active
         currentClasses.id = "active";
 
-        //  TODO HEARE
-        // Switch on click active tab and only show todolist task for this current active Project
+        // PRINTING PROPER TODO LISTS ON CURRENT PROJECT
+        // set name of project to currentProjectActive variable
+        let currentProjectActive = currentClasses.textContent;
+
+        // based on that variable call TodoView.renderTodos(passVariableHere to know which project todo list print on screen)
+        TodoView.renderTodos(currentProjectActive);
       }
     });
   }
