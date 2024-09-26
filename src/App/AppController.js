@@ -114,9 +114,17 @@ export class AppController {
         //  extract index from id
         const searchTerm = "todoindex";
         let finalID = todoID.substring(searchTerm.length);
-        console.log(finalID);
-        // let todoEntryArray = localStorage.getItem(todoID);
-        // console.log(todoEntryArray);
+        let todoEntryArray = localStorage.getItem(finalID);
+        // console.log(TodoItem.todoItemsArray);
+        // HERE I SHOULD ADD NEW ITEM TO localStorage
+        // BUT I DONT HAVE STATUS VARIABLE IN localStorage
+        // I DONT CARE TO FIX THIS
+
+        let currentDivToChange = document.querySelector(
+          `#${todoID} .todo-item__priority`
+        );
+        console.log(currentDivToChange);
+        currentDivToChange.textContent = "DONE";
       }
     });
   }
