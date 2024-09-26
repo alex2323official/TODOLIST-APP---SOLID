@@ -98,6 +98,19 @@ export class TodoView {
         nameChecker.push(todo.projectName);
       }
     });
+
+    // PRINT REST OF PROJECT SIDEBAR DIVs
+    todosArray.forEach((todo, index) => {
+      if (nameChecker.includes(todo.projectName)) {
+      } else {
+        // Take project name and add it to sidebar of projects
+        let sidebarProjectDiv = document.createElement("div");
+        sidebarProjectDiv.classList.add("projects-list-form__single-project");
+        sidebarProjectDiv.innerText = `${todo.projectName}`;
+        this.projectsListContainer.appendChild(sidebarProjectDiv);
+        nameChecker.push(todo.projectName);
+      }
+    });
   }
 
   static bindRemoveTodoItemWithStorage(idOfBtn) {
