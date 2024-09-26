@@ -36,24 +36,23 @@ export class TodoView {
     let todosArray = TodoItem.getAllTodos();
 
     // CHECK HERE FOR PROPER ARRAY ONLY WITH CURRENT PROJECT (using currentProjectActive)
-
-    console.log(currentProjectActive);
-    console.log(todosArray);
+    let filteredTodosArray = [];
 
     if (currentProjectActive != undefined) {
       todosArray.forEach((element) => {
         if (element.projectName == currentProjectActive) {
-          console.log(element);
+          filteredTodosArray.push(element);
         }
       });
     }
+    // console.log(filteredTodosArray);
 
     // CHECK HERE FOR PROPER ARRAY ONLY WITH CURRENT PROJECT (using currentProjectActive)
 
     let nameChecker = [];
 
     // loop trough array of Todos
-    todosArray.forEach((todo, index) => {
+    filteredTodosArray.forEach((todo, index) => {
       // create todo dom html element from array
       let todoItemContainer = document.createElement("div");
       todoItemContainer.classList.add("todo-item__container");
@@ -111,20 +110,20 @@ export class TodoView {
     }
   }
 
-  static bindAddTodoItemToStorage(userInputArray) {
+  static bindAddTodoItemToStorage(userInputArray, projectName) {
     // current empty space in array
     let currentArrayLength = TodoItem.todoItemsArray.length;
 
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
-    this.renderTodos();
+    this.renderTodos(projectName);
   }
 
-  static bindAddNewProjectToStorage(userInputArray) {
+  static bindAddNewProjectToStorage(userInputArray, projectName) {
     // current empty space in array
     let currentArrayLength = TodoItem.todoItemsArray.length;
 
     // Change projectName in array before save
     TodoRepository.localStorageSave(currentArrayLength, userInputArray);
-    this.renderTodos();
+    this.renderTodos(projectName);
   }
 }

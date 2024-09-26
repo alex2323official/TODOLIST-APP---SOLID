@@ -31,18 +31,31 @@ export class AppController {
       let userDueTo = this.formDueTo.value;
       let userPriority = this.formPriority.value;
 
+      // IMPORT ACTIVE USER LIST NAME
+      let acitveID = document.querySelector("#active");
+      let currentProjectActive = "";
+      if (acitveID) {
+        currentProjectActive = acitveID.textContent;
+        // console.log(currentProjectActive);
+      } else {
+        currentProjectActive = "My Project";
+        // console.log(currentProjectActive);
+      }
+
+      // IMPORT ACTIVE USER LIST NAME END
+
       // console.log(userTitle, userDescription, userDueTo, userPriority);
       let newUserTodoArray = [
         userTitle,
         userDescription,
         userDueTo,
         userPriority,
-        "My Project",
+        currentProjectActive,
       ];
 
       // console.log(newUserTodoArray);
       // TODO: import from TodoView controller for saving new todoitem
-      TodoView.bindAddTodoItemToStorage(newUserTodoArray);
+      TodoView.bindAddTodoItemToStorage(newUserTodoArray, currentProjectActive);
     });
   }
 
@@ -53,7 +66,7 @@ export class AppController {
       let newUserTodoArray = ["", "", "", "", userNewProjectName];
 
       // add userNewProjectName to storage
-      TodoView.bindAddNewProjectToStorage(newUserTodoArray);
+      TodoView.bindAddNewProjectToStorage(newUserTodoArray, userNewProjectName);
     });
   }
 

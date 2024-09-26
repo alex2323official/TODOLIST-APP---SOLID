@@ -10,4 +10,4 @@ AppController.listenForAddNewTodo();
 AppController.listenForAddProject();
 AppController.checkWhichProjectIsActive();
 
-// TodoView.renderTodos(); temporary off to test project rendering related UI
+TodoView.renderTodos("My Project");
